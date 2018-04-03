@@ -1,0 +1,44 @@
+import csv
+#import sys
+#import argparse
+
+#file_name = sys.argv[1]
+
+# path to file of interest, may want to use sys.argv[1] instead in order to add the filename and path on command input line instead of changing in file each time
+file_name = "/mnt/c/Users/Penny/Desktop/CO_V4_data/T_test_Midpt"
+print(file_name)
+
+#create list of columns to use to contain data from column 3 and 4 below
+columns = []
+print(columns)
+
+# step to read in csv file and assign to variable file_name
+with open (file_name, 'r') as csvfile:
+        print("opening file")
+# read in each line of the file for each reported CO
+        for line in csvfile.readlines()[0:]:
+                print(line)
+# will split each line at the tab between columns, file is a 5 columns - chromosmoe, start, stop, individual, midpt
+                tmp = line.split('\t')
+                print(tmp)
+
+# will add columns 3 and 4 to list named columns for individual name and midpoint value, respectively
+                columns.append([tmp[3], tmp[4]])
+                print(columns)
+                print(columns[0][0])
+#code worked to this point, then get error of out of bounds for following line.  Suspect due to file is still reading in to list.  Need to finish reading file into list before moving onto the next step of comparison of list items.
+                print(columns[1][0])
+
+for x in range(len(columns)):
+        if ((columns[0][0]) == (columns[1][0])):
+                print(columns[1][1]-columns[0][1])
+                print("It is a match")
+        else:
+                print ("not a match")
+
+
+
+#out_file = open("/mnt/c/Users/Penny/Desktop/CO_V4_data/out_file")
+#out_file.write(columns.append((tmp[3],tmp[4])))
+#out_file.close()
+
