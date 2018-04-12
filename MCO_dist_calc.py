@@ -1,3 +1,6 @@
+### python script to read table into program to identify distance between MCO within a chromosome of and individual, and then calculate the distance between COs
+
+
 import csv
 import sys
 #import argparse
